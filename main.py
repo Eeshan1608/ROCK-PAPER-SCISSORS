@@ -1,63 +1,56 @@
 
-  
+# # import necessary libraries
+# #import getpass
+# # use getpass for hidden input
+# # use getpass for hidden input
+# #secret_word = getpass.getpass("Enter your word:").lower()
+# #hint = input("Enter a hint: ")
+# #guessed_letters = []
+# #wrong_guesses = 0
+# #max_wrong = 5
+# #display = ""
+
+# # fix the error in the condition
+# #while wrong_guesses < max_wrong:
+#   #  display = ""
+#   #  for letter in secret_word:
+#    #     if letter in guessed_letters:
+#    #         display = display + letter
+#   #      else:
+#          #   display += "_"
+
+#   #  print("Word:", display)
+#     print("Hint:", hint)
+
+#     # fix the condition to check if the word has been guessed
+#     if display == secret_word:
+#         print("Congratulations! You guessed the word:", secret_word)
+#         break
 
 
+#     # convert the input to lowercase
+#     guess = input("Enter a letter: ").lower()
 
+#     if guess not in secret_word:
+#         # make sure a life is lost if the guessed letter is not in the word
+#         wrong_guesses = wrong_guesses  + 1
+#         print("Wrong guess! Lives left:", max_wrong - wrong_guesses)
+#         guessed_letters.append(guess)
+#         print(guessed_letters)
 
+#     else:
+#         print ("Correct guess!")
+#         guessed_letters.append(guess)
+#         print(guessed_letters)
 
-#  Objective:
-#  Create a Python program where the computer
-# randomly selects a number from a list, and the
-# player has to guess it.
+# if display != secret_word:
+#     print("Game over! The word was: ", secret_word)
 
-#  Online research is encouraged (Python
-# concepts, Syntax, etc.).
-#  Using AI to create the program or certain parts of it
-# is not allowed.
-
-# Practice &
-# Homework
-
-#  Instructions:
-#  Create a list of numbers from 1 to 20.
-#  Use the random module to have the computer
-# select a random number from this list (see
-# https://www.w3schools.com/python/ref_random_r
-# andom.asp for reference)
-#  Ask the user to input their name and welcome
-# them to the game.
-#  Prompt the player to guess the number.
-#  Provide hints using if-else statements:
-#  If the guess is too low, print "Too low! The correct
-# number was [number]“
-#  If the guess is too high, print "Too high! The correct
-# number was [number]“
-#  If the guess is correct, print "Congratulations,
-# [name]! You've guessed the number!“
-
-import random
-guess_number = 0
-number_list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-name = input("Enter your name: ")
-print ("Hello", name, "welcome to the game")
-print("")
-print("Please guess a number between 1 and 20")
-print("")
-while True:
-    comp_choice = random.choice(number_list)
-    while True:
-      guess_number = int(input("Enter your guess: "))
-      if guess_number == comp_choice:
-        print("Correct")
-
-
-
-
-      elif guess_number < comp_choice:
-        print("Too low")
-      elif guess_number > comp_choice:
-        print("Too high")
-
-      playagain = input("Do you want to play again? (yes/no): ")
-      if playagain.lower() == "no":
-        break
+# print("")
+# while True:
+#     print ("Do you want to play again?")
+#     playagain = input("If you want play again type yes or no: ").lower()
+#     if playagain == "yes":
+#         continue 
+#     else:
+#         break 
