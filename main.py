@@ -1,54 +1,63 @@
 
-
-
-
-
-import random
-user_choice = 0
-user_wins = 0
-gestures = ["rock", "scissor","paper"]
-options = [1,2,3]
-print ("Hello welcome to ROCK SCISSOR PAPER GAME DO YOU KNOW THE RULES? Rock = 1, Scissor = 2, Paper = 3 ")
-print("")
-rules = input("If you don't know the rules type no if you know the rules type yes: ")
-if rules.lower == "no":
-    print("Rock beats scissor, scissor beats paper, and paper beats rock")
-    print("")
-    print("Rock = 1, Scissor = 2, Paper = 3")
-    print("we play now")
-else:
-    print("ok we play now")
-
-while True:
-    user_choice = int(input("Enter your choice: "))
-    
-    comp_choice = random.choice(options)
-    print("Computer choice is: ",(gestures[comp_choice - 1]))
-    if user_choice - comp_choice == -1 or user_choice - comp_choice == 2:
-        print("You win")
-        user_wins += 1
-        print("Your score is: ", user_wins)
-    elif user_choice == comp_choice:
-        print("It's a tie")
-        user_wins += 0
-        print("your score is: ", user_wins)
-        
-    else:
-        print("you lost")
-        user_wins -= 1
-        print("your score is: ", user_wins)
-
-    
-
-    playagain = input("Do you want to play again? (yes/no): ")
-    if playagain.lower() == "no":
-        print("Your final score is: ", user_wins)
-        break
-    
-
-        
-
   
 
 
 
+
+
+#  Objective:
+#  Create a Python program where the computer
+# randomly selects a number from a list, and the
+# player has to guess it.
+
+#  Online research is encouraged (Python
+# concepts, Syntax, etc.).
+#  Using AI to create the program or certain parts of it
+# is not allowed.
+
+# Practice &
+# Homework
+
+#  Instructions:
+#  Create a list of numbers from 1 to 20.
+#  Use the random module to have the computer
+# select a random number from this list (see
+# https://www.w3schools.com/python/ref_random_r
+# andom.asp for reference)
+#  Ask the user to input their name and welcome
+# them to the game.
+#  Prompt the player to guess the number.
+#  Provide hints using if-else statements:
+#  If the guess is too low, print "Too low! The correct
+# number was [number]“
+#  If the guess is too high, print "Too high! The correct
+# number was [number]“
+#  If the guess is correct, print "Congratulations,
+# [name]! You've guessed the number!“
+
+import random
+guess_number = 0
+number_list = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+name = input("Enter your name: ")
+print ("Hello", name, "welcome to the game")
+print("")
+print("Please guess a number between 1 and 20")
+print("")
+while True:
+    comp_choice = random.choice(number_list)
+    while True:
+      guess_number = int(input("Enter your guess: "))
+      if guess_number == comp_choice:
+        print("Correct")
+
+
+
+
+      elif guess_number < comp_choice:
+        print("Too low")
+      elif guess_number > comp_choice:
+        print("Too high")
+
+      playagain = input("Do you want to play again? (yes/no): ")
+      if playagain.lower() == "no":
+        break
