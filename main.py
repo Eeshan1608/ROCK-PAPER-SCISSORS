@@ -24,7 +24,7 @@ else:
 if int(comp_player) == 1:
     print("ok we play with computer")
     print("")
-    
+
 
     while True:
         user_choice = int(input("Enter your choice: "))
@@ -52,7 +52,10 @@ if int(comp_player) == 1:
             print("Your final score is: ", user_wins)
             break
 else:
-    
+    player1 = input("Enter your name player 1 : ")
+    player2 = input("Enter your name player 2 : ")
+
+
     if rules.lower == "no":
         print("Rock beats scissor, scissor beats paper, and paper beats rock")
         print("")
@@ -61,11 +64,14 @@ else:
     else:
         print("ok we play now")
     while True:
-        user_choice = int(getpass.getpass("Enter your choice player1: "))
+        user_choice = int(getpass.getpass("Enter your choice: ", player1, ))
         user_choice2 = int(getpass.getpass("Enter your choice player 2: "))
         if user_choice - user_choice2 == -1 or user_choice - user_choice2 ==2:
             print("player 1 wins")
             user_wins += 1
+            open("score.txt", for.append)
+            write("score.txt", "winner is", player1)
+            close("score.txt")
             print("Player 1 score is: ", user_wins)
             print("Player 2 score is: ", user_wins2)
         elif user_choice == user_choice2:
@@ -88,7 +94,10 @@ else:
         
             
     
-    
+
+
+
+
 
 
 
