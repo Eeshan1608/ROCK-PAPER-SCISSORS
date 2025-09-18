@@ -64,30 +64,38 @@ else:
     else:
         print("ok we play now")
     while True:
-        user_choice = int(getpass.getpass("Enter your choice: ", player1, ))
+        user_choice = int(getpass.getpass("Enter your choice player 1: "))
         user_choice2 = int(getpass.getpass("Enter your choice player 2: "))
         if user_choice - user_choice2 == -1 or user_choice - user_choice2 ==2:
             print("player 1 wins")
             user_wins += 1
-            open("score.txt", for.append)
-            write("score.txt", "winner is", player1)
-            close("score.txt")
-            print("Player 1 score is: ", user_wins)
-            print("Player 2 score is: ", user_wins2)
+            with open("wins.txt", "a") as file:
+                file.write(str("Player 1 wins"))
+                file.close()
+                
+                
+            print(player1, "score is: ", user_wins)
+            print(player2," score is: ", user_wins2)
         elif user_choice == user_choice2:
             print("ITS TIE")
             user_wins += 0
             user_wins2 += 0
+            with open("wins.txt", "a") as file:
+                file.write(str("ITS TIE"))
+                file.close()
             print("Player 1 score is: ", user_wins)
             print("Player 2 score is: ", user_wins2)
         else:
             print("Player 2 wins")
             user_wins2 += 1
-            print("Player 2 score is: ", user_wins2)
-            print("Player 1 score is: ", user_wins)
+            with open("wins.txt", "a") as file:
+                file.write(str("Player 2 wins"))
+                file.close()
+            print(player1, "score is: ", user_wins2)
+            print(player1,  "score is: ", user_wins)
 
         playagain = input("Do you want to play again? (yes/no): ")
         if playagain.lower() == "no":
-            print("Your final score Player 1 is: ", user_wins)
-            print("Your final score is Player 2 is: ", user_wins2)
+            print("Your final score", player1,  "is: ", user_wins)
+            print("Your final score", player2, "is: ", user_wins2)
             break
