@@ -4,6 +4,7 @@
 
 import getpass
 import random
+
 rules = ""
 user_choice = 0
 user_choice2 = 0
@@ -12,8 +13,11 @@ user_wins = 0
 gestures = ["rock", "scissor","paper"]
 options = [1,2,3]
 print("Hello welcome to ROCK SCISSOR PAPER GAME R = 1, S = 2, P = 3") 
+print("")
 comp_player = input("Press 1 to play with computer or 2 to play with another player: ")
+rounds = int(input("Enter the number of rounds you want to play: "))
 rules = input("If you don't know the rules type no if you know the rules type yes: ")
+
 if rules.lower() == "no":
     print("Rock beats scissor, scissor beats paper, and paper beats rock")
     print("")
@@ -26,7 +30,9 @@ if int(comp_player) == 1:
     print("")
 
 
-    while True:
+
+    for i in range(rounds):
+        print("round", i+1)
         user_choice = int(input("Enter your choice: "))
 
         comp_choice = random.choice(options)
@@ -44,17 +50,17 @@ if int(comp_player) == 1:
             print("you lost")
             user_wins -= 1
             print("your score is: ", user_wins)
+            print("")
+    print("Game done")
+    print("Your total score is: ", user_wins)
 
 
 
-        playagain = input("Do you want to play again? (yes/no): ")
-        if playagain.lower() == "no":
-            print("Your final score is: ", user_wins)
-            break
+    
 else:
     player1 = input("Enter your name player 1 : ")
     player2 = input("Enter your name player 2 : ")
-
+    
 
     if rules.lower == "no":
         print("Rock beats scissor, scissor beats paper, and paper beats rock")
@@ -63,11 +69,16 @@ else:
         print("we play now")
     else:
         print("ok we play now")
-    while True:
+    for i in range(rounds):
+        print("round", i+1)
         user_choice = int(getpass.getpass("Enter your choice player 1: "))
+        print("")
+        print("")
         user_choice2 = int(getpass.getpass("Enter your choice player 2: "))
         if user_choice - user_choice2 == -1 or user_choice - user_choice2 ==2:
             print("player 1 wins")
+            print("")
+            print("")
             user_wins += 1
             with open("wins.txt", "a") as file:
                 file.write(str("Player 1 wins"))
@@ -75,6 +86,8 @@ else:
                 
                 
             print(player1, "score is: ", user_wins)
+            print("")
+            print("")
             print(player2," score is: ", user_wins2)
         elif user_choice == user_choice2:
             print("ITS TIE")
@@ -91,11 +104,6 @@ else:
             with open("wins.txt", "a") as file:
                 file.write(str("Player 2 wins"))
                 file.close()
-            print(player1, "score is: ", user_wins2)
+            print(player2, "score is: ", user_wins2)
             print(player1,  "score is: ", user_wins)
 
-        playagain = input("Do you want to play again? (yes/no): ")
-        if playagain.lower() == "no":
-            print("Your final score", player1,  "is: ", user_wins)
-            print("Your final score", player2, "is: ", user_wins2)
-            break
